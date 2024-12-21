@@ -150,4 +150,4 @@ Socials:
     [LinkedIn](https://www.linkedin.com/in/abhishek-laha/),
     [Gmail](mailto:abhisheklaha199@gmail.com?)
 
-Project Link: 
+Project Link: https://github.com/geekyguy1705/linux-post-install-setup
