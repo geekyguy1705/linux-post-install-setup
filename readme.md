@@ -148,6 +148,7 @@ FLATPAK_PACKAGES=(
 - Add rollback functionality
 - Add configuration file validation
 - Implement parallel installations where possible
+- Manage installation for packages not available in distro-native repositories. 
 
 ## License
 
