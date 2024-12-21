@@ -151,8 +151,7 @@ FLATPAK_PACKAGES=(
 - Manage installation for packages not available in distro-native repositories. 
 
 ## License
-
-Coming Soon :)
+This Project is under [MIT](https://github.com/geekyguy1705/linux-post-install-setup/blob/master/LICENSE) license.
 
 ## Acknowledgements
 - Inspired by the need for automated system setup
