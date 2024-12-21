@@ -47,18 +47,31 @@ chmod +x install_packages.sh
 chmod +x lib/*.sh
 ```
 
-## UsageRun the main script:
+## Usage
 
+The script can be run in multiple ways:
+
+1. Using default configuration:
 ```bash
 ./install_packages.sh
 ```
+2. Using custom configuration file:
+```bash
+./install_packages.sh --config /path/to/custom/packages.conf
+```
+3. Show help message:
+```bash
+./install_packages.sh --help
+```
 
-## Customizing Package Lists
 
-Edit configs/packages.conf to modify the packages to be installed:
+## Configuration Files
 
-Sample config file:
+### Default Configuration
+The default configuration is located at configs/packages.conf.
 
+### Custom Configuration
+You can create your own configuration file following this template:
 ```bash
 # Native packages
 NATIVE_PACKAGES=(
