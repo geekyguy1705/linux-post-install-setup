@@ -6,6 +6,7 @@ detect_distro() {
         . /etc/os-release
         DISTRO=$ID
         DISTRO_VERSION=$VERSION_ID
+        INFO="ID=$ID, VERSION=$VERSION_ID"
     else
         error_log "Cannot detect Linux distribution"
         exit 1
@@ -46,7 +47,7 @@ setup_package_managers() {
                 rm -rf yay
             fi
             ;;
-        "opensuse"*)
+        "opensuse")
             NATIVE_PKG_MGR="zypper"
             if ! command_exists zypper; then
                 error_log "zypper is not installed. This is unusual for $DISTRO."

@@ -64,7 +64,6 @@ The script can be run in multiple ways:
 ./install_packages.sh --help
 ```
 
-
 ## Configuration Files
 
 ### Default Configuration
@@ -109,7 +108,6 @@ FLATPAK_PACKAGES=(
 2. Fedora
 3. Arch Linux/Manjaro
 4. openSUSE
-
 
 ## Features in Detail
 
