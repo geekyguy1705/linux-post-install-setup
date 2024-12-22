@@ -22,7 +22,41 @@ setup_package_managers() {
                 exit 1
             fi
             ;;
-        # ... rest of your setup_package_managers function
+        "fedora")
+            NATIVE_PKG_MGR="dnf"
+            if ! command_exists dnf; then
+                error_log "dnf is not installed. This is unusual for $DISTRO."
+                exit 1
+            fi
+            ;;
+        "arch"|"manjaro")
+            NATIVE_PKG_MGR="pacman"
+            if ! command_exists pacman; then
+                error_log "pacman is not installed. This is unusual for $DISTRO."
+                exit 1
+            fi
+            # Install yay for AUR access
+            if ! command_exists yay; then
+                log "Installing yay for AUR access..."
+                sudo pacman -S --noconfirm base-devel
+                git clone https://aur.archlinux.org/yay.git
+                cd yay
+                makepkg -si --noconfirm
+                cd ..
+                rm -rf yay
+            fi
+            ;;
+        "opensuse"*)
+            NATIVE_PKG_MGR="zypper"
+            if ! command_exists zypper; then
+                error_log "zypper is not installed. This is unusual for $DISTRO."
+                exit 1
+            fi
+            ;;
+        *)
+            error_log "Unsupported distribution: $DISTRO"
+            exit 1
+            ;;
     esac
 
     # Setup Snap and Flatpak

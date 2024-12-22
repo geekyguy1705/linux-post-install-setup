@@ -21,7 +21,31 @@ install_native_packages() {
                 fi
             done
             ;;
-        # Other package managers...
+        "dnf")
+            log "Updating dnf repositories..."
+            sudo dnf check-update
+            for package in "${NATIVE_PACKAGES[@]}"; do
+                log "Installing $package via dnf..."
+                sudo dnf install -y "$package" || error_log "Failed to install $package"
+            done
+            ;;
+        "pacman")
+            log "Updating pacman repositories..."
+            sudo pacman -Sy
+            for package in "${NATIVE_PACKAGES[@]}"; do
+                log "Installing $package via pacman..."
+                sudo pacman -S --noconfirm "$package" || error_log "Failed to install $package"
+            done
+            ;;
+        "zypper")
+            log "Updating zypper repositories..."
+            sudo zypper refresh
+            for package in "${NATIVE_PACKAGES[@]}"; do
+                log "Installing $package via zypper..."
+                sudo zypper install -y "$package" || error_log "Failed to install $package"
+            done
+            ;;
+    esac
     esac
 }
 
